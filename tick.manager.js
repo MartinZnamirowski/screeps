@@ -1,31 +1,31 @@
-var roleBuilder = {
+var logger = require('logger');
+// ExecutionArray
+// 10 - ReEvaluate Tick Strategy
+// 20 - ReEvaluate Global Strategy
+// 30 - Execute Global Strategy
+// 40 - Execute Room Strategy
+// 50 - 
 
-    /** @param {Creep} creep **/
-    run: function(creep) {
 
-        if(creep.memory.building && creep.carry.energy == 0) {
-            creep.memory.building = false;
-            creep.say('🔄 harvest');
-        }
-        if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-            creep.memory.building = true;
-            creep.say('🚧 build');
-        }
+// Tick modes:
+// 0 - Default
 
-        if(creep.memory.building) {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-            if(targets.length) {
-                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
-                }
-            }
+var tickManager = {
+    getDistribution: function() {
+        switch(Memory.globals.tickMode) {
+            case 0: 
+                return getDefaultTicks()
+            default:
+                return getDefaultTicks()
         }
-        else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
-        }
+    },
+
+    getDefaultTicks: function() {
+        logger.log(Game.cpu.limit)
+        logger.log(Game.cpu.tickLimit)
+        logger.log(Game.cpu.bucket)
+        logger.log(Game.cpu.shardLimits)
+        
     }
 };
 

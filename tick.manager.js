@@ -12,10 +12,10 @@ var logger = require('logger');
 
 const tickAlgorithms = {
     getDefaultTicks: function() {
-        logger.log(Game.cpu.limit)
-        logger.log(Game.cpu.tickLimit)
-        logger.log(Game.cpu.bucket)
-        logger.log(Game.cpu.shardLimits)
+        logger.log(Game.cpu.limit, 5)
+        logger.log(Game.cpu.tickLimit, 5)
+        logger.log(Game.cpu.bucket, 5)
+        logger.log(Game.cpu.shardLimits, 5)
         
     }
 }

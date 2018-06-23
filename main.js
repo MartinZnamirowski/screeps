@@ -5,7 +5,7 @@ var tickManager = require('tick.manager')
 
 module.exports.loop = function () {
     Memory.globals = {
-        "logLevel": 20,
+        "logLevel": 5,
         "strategy": 0,
         "tickMode": 0
     }

@@ -1,3 +1,5 @@
+var logger = require('logger');
+
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
@@ -5,11 +7,11 @@ var roleUpgrader = {
 
         if(creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
-            creep.say('🔄 harvest');
+            logger.log('harvest', 10);
         }
         if(!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
             creep.memory.upgrading = true;
-            creep.say('⚡ upgrade');
+            logger.log('upgrade', 10);
         }
 
         if(creep.memory.upgrading) {

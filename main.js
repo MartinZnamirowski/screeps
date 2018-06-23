@@ -1,8 +1,12 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var tickManager = require('tick.manager')
 
 module.exports.loop = function () {
+
+    const distribution = tickManager.getDistribution()
+
     var tower = Game.getObjectById('TOWER_ID');
     if(tower) {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {

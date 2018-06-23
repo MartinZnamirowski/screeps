@@ -13,7 +13,7 @@ module.exports.loop = function () {
     }
 
     const distribution = tickManager.getDistribution()
-    logger.log(distribution)
+    logger.log(distribution, 5)
 
     var tower = Game.getObjectById('TOWER_ID');
     if(tower) {

@@ -29,4 +29,4 @@ var tickManager = {
     }
 };
 
-module.exports = roleBuilder;
+module.exports = tickManager;

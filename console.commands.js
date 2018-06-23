@@ -1,5 +1,5 @@
-// require('console.commands).init()
-// Game.spawn['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Testi', {'memory': {'role':'uprader1}})
+// require("console.commands").init()
+// Game.spawn["Spawn1"].spawnCreep([WORK, MOVE, CARRY], "Testi", {"memory": {"role":"uprader1"}})
 
 var consoleCommands = {
 

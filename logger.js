@@ -3,7 +3,7 @@ var logger = {
     /** @param {string} message **/
     log: function(message, level) {
         if (Memory.globals.logLevel <= level) {
-            console.log(message)
+            console.log(JSON.stringify(message))
         }
     }
 };

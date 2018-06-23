@@ -10,16 +10,7 @@ var logger = require('logger');
 // Tick modes:
 // 0 - Default
 
-var tickManager = {
-    getDistribution: function() {
-        switch(Memory.globals.tickMode) {
-            case 0: 
-                return getDefaultTicks()
-            default:
-                return getDefaultTicks()
-        }
-    },
-
+const tickAlgorithms = {
     getDefaultTicks: function() {
         logger.log(Game.cpu.limit)
         logger.log(Game.cpu.tickLimit)
@@ -27,6 +18,18 @@ var tickManager = {
         logger.log(Game.cpu.shardLimits)
         
     }
+}
+
+var tickManager = {
+    getDistribution: function() {
+        switch(Memory.globals.tickMode) {
+            case 0: 
+                return tickAlgorithms.getDefaultTicks()
+            default:
+                return tickAlgorithms.getDefaultTicks()
+        }
+    },
+
 };
 
 module.exports = tickManager;

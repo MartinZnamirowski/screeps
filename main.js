@@ -2,6 +2,8 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var tickManager = require('tick.manager')
+var logger = require('logger');
+
 
 module.exports.loop = function () {
     Memory.globals = {
@@ -11,6 +13,7 @@ module.exports.loop = function () {
     }
 
     const distribution = tickManager.getDistribution()
+    logger.log(distribution)
 
     var tower = Game.getObjectById('TOWER_ID');
     if(tower) {

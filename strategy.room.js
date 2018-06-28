@@ -1,4 +1,5 @@
 var logger = require('logger');
+var helpers = require('helpers');
 // 40 - Execute Room Strategy
 
 // Room Strategies:
@@ -7,6 +8,10 @@ var logger = require('logger');
 var roomHelpers = {
     harvesterSatiation: function(room) {
         var maxEnergyRate
+        var harvestSlots
+        var avgDistance
+
+        // Determine maxEnergyRate
         if(room.memory.maxEnergyRate == undefined) {
             var sources = room.find(FIND_SOURCES)
             maxEnergyRate = 0
@@ -20,6 +25,22 @@ var roomHelpers = {
             logger.log("Room " + room.name + " was found to have a max energy Rate of: " + maxEnergyRate, 20)
         } else {
             maxEnergyRate = room.memory.maxEnergyRate
+        }
+
+        // Determine harvestSlots
+        if(room.memory.harvestSlots == undefined) {
+            var sources = room.find(FIND_SOURCES)
+            harvestSlots = 0
+            var sourceId
+            for(sourceId in sources) {
+                const source = sources[sourceId]
+                freeSpaces = helpers.freeSpaces(source.pos, 1)
+                harvestSlots += freeSpaces
+            }
+            room.memory.harvestSlots = harvestSlots
+            logger.log("Room " + room.name + " was found to have " + harvestSlots + " harvest slots.", 20)
+        } else {
+            harvestSlots = room.memory.harvestSlots
         }
     }
 }

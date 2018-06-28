@@ -26,6 +26,7 @@ var creepHelpers = {
             const pattern = [WORK, CARRY, CARRY, CARRY, MOVE]
             const cost = 300
             for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){
+                logger.log("Hoho!")
                 body.concat(pattern)
             }
         }

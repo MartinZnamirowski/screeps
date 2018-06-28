@@ -44,6 +44,7 @@ var roomHelpers = {
         }
         
         const myCreeps = room.find(FIND_MY_CREEPS)
+        logger.log("MY CREEPs: " + myCreeps, 5)
         var harvesterNumber = 0
         var harvestingPower = 0
         for (var i = 0, len = myCreeps; i < len; i++) {

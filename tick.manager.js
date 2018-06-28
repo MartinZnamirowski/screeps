@@ -45,7 +45,7 @@ var tickManager = {
         if(Game.time > Memory.cooldowns[10] + 100) {
             logger.log(Memory.cooldowns[10], 20)
             logger.log(Memory.cooldowns[10]+100, 20)
-            Memory.cooldowns[10] = int(Game.time)
+            Memory.cooldowns[10] = parseInt(Game.time)
             logger.log(Memory.cooldowns[10], 20)
             logger.log("Re-evaluating Tick strategy!", 20)
  

@@ -11,10 +11,9 @@ var roomHelpers = {
             var sources = room.find(FIND_SOURCES)
             maxEnergyRate = 0
             logger.log(sources, 5)
-            var source
-            for(source in sources) {
-                logger.log(source, 5)
-                logger.log(sources[source], 5)
+            var sourceId
+            for(sourceId in sources) {
+                const source = sources[source]
                 maxEnergyRate += source.energyCapacity / 300
             }
             room.memory.maxEnergyRate = maxEnergyRate

@@ -12,11 +12,11 @@ Memory.globals = {
 }
 
 Memory.cooldowns = {
-    10: 0,
-    20: 0,
-    30: 0,
-    40: 0,
-    100: 0,
+    10: -10000,
+    20: -10000,
+    30: -10000,
+    40: -10000,
+    100: -10000,
 }
 */
 
@@ -30,9 +30,6 @@ module.exports.loop = function () {
 
     // Execution Tree
     if(distribution[10]) {
-        //logger.log("LLAALALALA", 5)
-        //logger.log(Memory.cooldowns, 5)
-        //logger.log(JSON.stringify(Memory.cooldowns), 5)
         tickManager.reEvaluateTickStrategy()
     }
 

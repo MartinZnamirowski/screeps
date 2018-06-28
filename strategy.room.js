@@ -5,8 +5,11 @@ var logger = require('logger');
 // 0 - Default
 
 const strategies = {
-    executeDefault: function() {
-        logger.log("Executing Default Room strategy.", 20)
+    executeDefault: function(room) {
+        logger.log("Executing Default Room strategy for room " + room + ".", 20)
+
+        // CREEP SPAWN
+
     }
 }
 
@@ -18,9 +21,9 @@ var strategyRoom = {
             for(room in Game.rooms) {    
                 switch(Memory.roomStrategies[room]) {
                 case 0: 
-                    return strategies.executeDefault()
+                    return strategies.executeDefault(room)
                 default:
-                    return strategies.executeDefault()
+                    return strategies.executeDefault(room)
                 }
             }
         }

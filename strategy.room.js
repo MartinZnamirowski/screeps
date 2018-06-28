@@ -36,11 +36,7 @@ var roomHelpers = {
             for(sourceId in sources) {
                 const source = sources[sourceId]
                 const freeSpaces = helpers.freeSpaces(source.pos, 1)
-                logger.log(source)
-                logger.log(source)
-                logger.log(source)
-                logger.log(source)
-                room.memory.harvestSlots[source.ID] = freeSpaces
+                room.memory.harvestSlots[source.id] = freeSpaces
                 harvestSlotsTotal += freeSpaces
             }
             room.memory.harvestSlotsTotal = harvestSlotsTotal

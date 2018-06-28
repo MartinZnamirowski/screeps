@@ -21,7 +21,7 @@ const strategies = {
 
 var tickManager = {
     executeStrategies: function() {
-        if(Game.time > Memory.cooldowns[30] + 500) {
+        if(Game.time > Memory.cooldowns[30] + 20) {
             Memory.cooldowns[30] = Game.time
             switch(Memory.globals.tickMode) {
             case 0: 
@@ -33,7 +33,7 @@ var tickManager = {
     },
 
     reEvaluateGlobalStrategy: function() {
-        if(Game.time > Memory.cooldowns[20] + 1000) {
+        if(Game.time > Memory.cooldowns[20] + 20) {
             Memory.cooldowns[20] = Game.time 
             logger.log("Global Strategy set to default mode: 0", 20)
             Memory.globals.tickMode = 0

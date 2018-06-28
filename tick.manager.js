@@ -40,7 +40,7 @@ var tickManager = {
     },
 
     reEvaluateTickStrategy: function() {
-        if(Game.time > Memory.cooldowns[10] + 100) {
+        if(Game.time > Memory.cooldowns[10] + 20) {
             Memory.cooldowns[10] = Game.time
             logger.log("Re-evaluating Tick strategy!", 20)
  

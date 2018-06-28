@@ -27,6 +27,8 @@ var harvesterHelper = {
         // TODO ORDER SOURCES BY DISTANCE
         for (const sourceID in creep.room.memory.harvestSlots) {
             logger.log('sourceID: ' + sourceID)
+            logger.log('harvestMapping[sourceID]: ' + harvestMapping[sourceID])
+            logger.log('creep.room.memory.harvestSlots[sourceID]: ' + creep.room.memory.harvestSlots[sourceID])
             if(harvestMapping[sourceID] == undefined || harvestMapping[sourceID] == null || harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
                 return sourceID
             }

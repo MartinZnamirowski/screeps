@@ -8,7 +8,7 @@ var creepHelpers = {
             for (var i = 0, len = creep.body.length; i < len; i++) {
                 const creepModule = creep.body[i]
                 logger.log("MODULE: " +  creepModule, 5)
-                if(creepModule == WORK){
+                if(creepModule.type == WORK){
                     workModules++
                 }
             }

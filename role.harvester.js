@@ -58,6 +58,7 @@ var roleHarvester = {
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         } else {
+            logger.log("WATT")
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||

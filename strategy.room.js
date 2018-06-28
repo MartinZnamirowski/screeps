@@ -1,5 +1,6 @@
 var logger = require('logger');
 var helpers = require('helpers');
+var creepHelpers = require('creep.helpers');
 // 40 - Execute Room Strategy
 
 // Room Strategies:
@@ -9,7 +10,6 @@ var roomHelpers = {
     harvesterSatiation: function(room) {
         var maxEnergyRate
         var harvestSlots
-        var avgDistance
 
         // Determine maxEnergyRate
         if(room.memory.maxEnergyRate == undefined) {
@@ -42,6 +42,21 @@ var roomHelpers = {
         } else {
             harvestSlots = room.memory.harvestSlots
         }
+        
+        const myCreeps = room.find(FIND_MY_CREEPS)
+        var harvesterNumber = 0
+        var harvestingPower = 0
+        for (var i = 0, len = myCreeps; i < len; i++) {
+            const myCreep = myCreeps[i]
+            const currentHP = creepHelpers.getHarvestingPower(myCreep)
+            if(currentHP > 0) {
+                harvesterNumber++
+                harvestingPower += currentHP
+            }
+        }
+        logger.log("HARVESTER NUMBER: " + harvesterNumber, 5)
+        logger.log("HARVESTING POWER: " + harvestingPower, 5)
+        return harvestingPower >= maxEnergyRate && harvesterNumber >= harvestSlots    
     }
 }
 

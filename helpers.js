@@ -3,10 +3,10 @@ var logger = require('logger');
 var helpers = {
     freeSpaces: function(pos, radius) {
         const room = Game.rooms[pos.roomName]
-        minX = pos.x - radius
-        minY = pos.y - radius
-        maxX = pos.x + radius
-        maxY = pos.y + radius
+        const minX = pos.x - radius
+        const minY = pos.y - radius
+        const maxX = pos.x + radius
+        const maxY = pos.y + radius
         areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
         var emptySpaces = 0
         for (var i = 0, len = areaArray.length; i < len; i++) {

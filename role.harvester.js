@@ -22,7 +22,7 @@ var harvesterHelper = {
         }
 
         // TODO ORDER SOURCES BY DISTANCE
-        for (sourceID in creep.room.memory.harvestSlots) {
+        for (const sourceID in creep.room.memory.harvestSlots) {
             if(harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
                 return sourceID
             }

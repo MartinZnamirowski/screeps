@@ -9,7 +9,7 @@ const strategies = {
     executeDefault: function() {
         logger.log("Executing Default strategy.", 20)
         for(room in Game.rooms) {
-            logger.log("Setting Room Strategy of room " + str(room) + " to 0.", 20)
+            logger.log("Room Strategy of room " + str(room) + " set to default mode: 0.", 20)
             if (Memory.roomStrategies == undefined) {
                 Memory.roomStrategies = {}
             }
@@ -34,7 +34,7 @@ var tickManager = {
     reEvaluateGlobalStrategy: function() {
         if(Game.time > Memory.cooldowns[20] + 1000) {
  
-            logger.log("Tick Strategy set to default mode: 0", 20)
+            logger.log("Global Strategy set to default mode: 0", 20)
             Memory.globals.tickMode = 0
         }
     }

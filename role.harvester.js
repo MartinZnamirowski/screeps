@@ -1,3 +1,5 @@
+var logger = require('logger');
+
 var harvesterHelper = {
     determineHarvestingSlot: function(creep) {
         var sources = creep.room.find(FIND_SOURCES);

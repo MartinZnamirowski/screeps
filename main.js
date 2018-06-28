@@ -5,21 +5,23 @@ var strategyGlobal = require('strategy.global')
 var tickManager = require('tick.manager')
 var logger = require('logger');
 
-/*
-Memory.globals = {
-    "logLevel": 5,
-    "strategy": 0,
-    "tickMode": 0
+if (Memory.globals == undefined) {
+    Memory.globals = {
+        "logLevel": 5,
+        "strategy": 0,
+        "tickMode": 0
+    }
 }
 
-Memory.cooldowns = {
-    10: -10000,
-    20: -10000,
-    30: -10000,
-    40: -10000,
-    100: -10000,
+if (Memory.cooldowns == undefined) {
+    Memory.cooldowns = {
+        10: -10000,
+        20: -10000,
+        30: -10000,
+        40: -10000,
+        100: -10000,
+    }
 }
-*/
 
 
 module.exports.loop = function () {

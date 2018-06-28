@@ -1,4 +1,8 @@
 var roleHarvester = {
+    determineHarvestingSlot: function(creep) {
+        var sources = creep.room.find(FIND_SOURCES);
+        
+    }
 
     /** @param {Creep} creep **/
     run: function(creep) {

@@ -9,7 +9,7 @@ var creepHelpers = require('creep.helpers');
 var roomHelpers = {
     harvesterSatiation: function(room) {
         var maxEnergyRate
-        var harvestSlots
+        var harvestSlotsTotal
 
         // Determine maxEnergyRate
         if(room.memory.maxEnergyRate == undefined) {
@@ -28,19 +28,21 @@ var roomHelpers = {
         }
 
         // Determine harvestSlots
-        if(room.memory.harvestSlots == undefined) {
+        if(room.memory.harvestSlotsTotal == undefined) {
+            room.memory.harvestSlots = {}
             var sources = room.find(FIND_SOURCES)
-            harvestSlots = 0
+            harvestSlotsTotal = 0
             var sourceId
             for(sourceId in sources) {
                 const source = sources[sourceId]
                 const freeSpaces = helpers.freeSpaces(source.pos, 1)
-                harvestSlots += freeSpaces
+                room.memory.harvestSlots[source.ID] = freeSpaces
+                harvestSlotsTotal += freeSpaces
             }
-            room.memory.harvestSlots = harvestSlots
-            logger.log("Room " + room.name + " was found to have " + harvestSlots + " harvest slots.", 20)
+            room.memory.harvestSlotsTotal = harvestSlotsTotal
+            logger.log("Room " + room.name + " was found to have " + harvestSlotsTotal + " harvest slots.", 20)
         } else {
-            harvestSlots = room.memory.harvestSlots
+            harvestSlotsTotal = room.memory.harvestSlotsTotal
         }
         
         const myCreeps = room.find(FIND_MY_CREEPS)
@@ -58,7 +60,7 @@ var roomHelpers = {
         }
         //logger.log("HARVESTER NUMBER: " + harvesterNumber, 5)
         //logger.log("HARVESTING POWER: " + harvestingPower, 5)
-        return harvestingPower >= maxEnergyRate || harvesterNumber >= harvestSlots    
+        return harvestingPower >= maxEnergyRate || harvesterNumber >= harvestSlotsTotal    
     }
 }
 

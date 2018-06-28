@@ -7,7 +7,7 @@ var helpers = {
         const minY = pos.y - radius
         const maxX = pos.x + radius
         const maxY = pos.y + radius
-        areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
+        const areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
         var emptySpaces = 0
         for (var i = 0, len = areaArray.length; i < len; i++) {
             currentDict = areaArray[i]

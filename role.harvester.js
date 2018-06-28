@@ -4,7 +4,7 @@ var harvesterHelper = {
 
         var harvestMapping = {}
 
-        const myHarvesters = room.find(FIND_MY_CREEPS, {
+        const myHarvesters = creep.room.find(FIND_MY_CREEPS, {
             filter: (creep) => {
                 return creep.memory.role=='harvester'
             }

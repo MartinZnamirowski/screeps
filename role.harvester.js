@@ -2,7 +2,7 @@ var harvesterHelper = {
     determineHarvestingSlot: function(creep) {
         var sources = creep.room.find(FIND_SOURCES);
 
-        harvestMapping = {}
+        var harvestMapping = {}
 
         const myHarvesters = room.find(FIND_MY_CREEPS, {
             filter: (creep) => {

@@ -49,6 +49,7 @@ var roomHelpers = {
         for (var i = 0, len = myCreeps; i < len; i++) {
             const myCreep = myCreeps[i]
             const currentHP = creepHelpers.getHarvestingPower(myCreep)
+            logger.log("CHECKING CREEP: " + myCreep, 5)
             if(currentHP > 0) {
                 harvesterNumber++
                 harvestingPower += currentHP

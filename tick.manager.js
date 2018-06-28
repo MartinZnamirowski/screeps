@@ -46,6 +46,7 @@ var tickManager = {
             logger.log(Memory.cooldowns[10], 20)
             logger.log(Memory.cooldowns[10]+100, 20)
             Memory.cooldowns[10] = Game.time
+            logger.log(Memory.cooldowns[10], 20)
             logger.log("Re-evaluating Tick strategy!", 20)
  
             logger.log("Tick Strategy set to default mode: 0", 20)

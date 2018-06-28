@@ -8,13 +8,13 @@ var logger = require('logger');
 const strategies = {
     executeDefault: function() {
         logger.log("Executing Default global strategy.", 20)
-        var room
-        for(room in Game.rooms) {
-            logger.log("Room Strategy of room " + room + " set to default mode: 0.", 20)
+        var roomName
+        for(roomName in Game.rooms) {
+            logger.log("Room Strategy of room " + roomName + " set to default mode: 0.", 20)
             if (Memory.roomStrategies == undefined) {
                 Memory.roomStrategies = {}
             }
-            Memory.roomStrategies[room] = 0
+            Memory.roomStrategies[roomName] = 0
         }
     }
 }

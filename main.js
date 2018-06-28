@@ -29,6 +29,14 @@ if (Memory.cooldowns == undefined) {
 
 module.exports.loop = function () {
 
+    // MEMORY CLEANUP
+    for(var name in Memory.creeps) {
+        if(!Game.creeps[name]) {
+            delete Memory.creeps[name];
+            console.log('Clearing non-existing creep memory:', name);
+        }
+    }
+
     const distribution = tickManager.getDistribution()
     logger.log(distribution, 5)
     logger.log(Game.time, 5)

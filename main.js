@@ -23,7 +23,7 @@ Memory.cooldowns = {
 module.exports.loop = function () {
 
     const distribution = tickManager.getDistribution()
-    // logger.log(distribution, 5)
+    //logger.log(distribution, 5)
     logger.log(Game.time, 5)
 
 

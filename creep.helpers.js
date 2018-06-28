@@ -22,11 +22,15 @@ var creepHelpers = {
         var body = []
         var expendedEnergy = 0
         if(role=='harvester') {
-            const pattern = [WORK, CARRY, CARRY, CARRY, MOVE]
-            const cost = 300
+            const pattern = [WORK, CARRY, MOVE]
+            const cost = 200
             for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){
                 body = body.concat(pattern)
             }
+            for(;expendedEnergy + 50 <= energyLimit; expendedEnergy+=cost){
+                body = [CARRY].concat(body)
+            }
+        
         }
         return body
     }

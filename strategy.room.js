@@ -34,7 +34,7 @@ var roomHelpers = {
             var sourceId
             for(sourceId in sources) {
                 const source = sources[sourceId]
-                freeSpaces = helpers.freeSpaces(source.pos, 1)
+                const freeSpaces = helpers.freeSpaces(source.pos, 1)
                 harvestSlots += freeSpaces
             }
             room.memory.harvestSlots = harvestSlots

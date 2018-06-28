@@ -10,6 +10,7 @@ var roomHelpers = {
         if(room.memory.maxEnergyRate == undefined) {
             var sources = room.find(FIND_SOURCES)
             maxEnergyRate = 0
+            logger.log(sources, 5)
             var source
             for(source in sources) {
                 logger.log(source, 5)

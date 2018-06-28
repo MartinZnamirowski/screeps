@@ -27,7 +27,7 @@ var creepHelpers = {
             for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){
                 body = body.concat(pattern)
             }
-            for(;expendedEnergy + 50 <= energyLimit; expendedEnergy+=cost){
+            for(;expendedEnergy + 50 <= energyLimit; expendedEnergy+=50){
                 body = [CARRY].concat(body)
             }
         

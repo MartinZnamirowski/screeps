@@ -10,7 +10,7 @@ const strategies = {
     }
 }
 
-var srategyRoom = {
+var strategyRoom = {
     executeStrategies: function() {
         if(Game.time > Memory.cooldowns[40] + 20) {
             Memory.cooldowns[40] = Game.time

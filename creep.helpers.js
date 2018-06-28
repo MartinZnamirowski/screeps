@@ -17,6 +17,19 @@ var creepHelpers = {
             return 0
         }
     },
+
+    constructCreep: function(role, energyLimit) {
+        var body = []
+        var expendedEnergy = 0
+        if(role=='harvester') {
+            const pattern = [WORK, CARRY, CARRY, CARRY, MOVE]
+            const cost = 300
+            for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){
+                body.concat(pattern)
+            }
+        }
+        return body
+    }
 };
 
 module.exports = creepHelpers;

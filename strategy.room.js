@@ -67,10 +67,14 @@ const strategies = {
         logger.log("Executing Default Room strategy for room " + roomName + ".", 20)
 
         const room = Game.rooms[roomName]
+        
         // SPAWN MAX CREEPS
+        anySpawn = room.find(FIND_MY_SPAWNS)[0]
         if(room.energyAvailable == room.energyCapacityAvailable) {
             if(!roomHelpers.harvesterSatiation(room)){
                 logger.log("Room " + roomName + " has no harvester Satisfaction. Spawning Harvester.", 20)
+                const body = creepHelpers.constructCreep('harvester', room.energyAvailable)
+                anySpawn.spawnCreep(body, 'harvester-' + Game.time, {memory: {role: 'harvester'}});
             }
         }
     }

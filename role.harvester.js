@@ -26,9 +26,6 @@ var harvesterHelper = {
         logger.log(harvestMapping)
         // TODO ORDER SOURCES BY DISTANCE
         for (const sourceID in creep.room.memory.harvestSlots) {
-            logger.log('sourceID: ' + sourceID)
-            logger.log('harvestMapping[sourceID]: ' + harvestMapping[sourceID])
-            logger.log('creep.room.memory.harvestSlots[sourceID]: ' + creep.room.memory.harvestSlots[sourceID])
             if(harvestMapping[sourceID] == undefined || harvestMapping[sourceID] == null || harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
                 return sourceID
             }
@@ -40,26 +37,19 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
-        logger.log("HUH")
         if(creep.carry.energy < creep.carryCapacity && creep.memory.target == undefined) {
-            logger.log("OHhfdsfd")
             var target = harvesterHelper.determineHarvestingSlot(creep)
-            logger.log("TARGET!" + target)
             creep.memory.target = target
         } else if (creep.carry.energy == creep.carryCapacity){
-            logger.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHH")
             creep.memory.target = undefined
         }
 
         if(creep.memory.target != undefined) {
             const source = Game.getObjectById(creep.memory.target)
-            logger.log("SOURCE: " + source)
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         } else {
-            logger.log("WATT:" + creep.memory.target)
-            logger.log("HAEH:" + creep.memory.target == undefined)
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||

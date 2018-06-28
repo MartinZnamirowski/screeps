@@ -2,9 +2,11 @@ var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var strategyGlobal = require('strategy.global')
+var strategyRoom = require('strategy.room')
 var tickManager = require('tick.manager')
 var logger = require('logger');
 
+// INIT GLOBALS
 if (Memory.globals == undefined) {
     Memory.globals = {
         "logLevel": 5,
@@ -13,6 +15,7 @@ if (Memory.globals == undefined) {
     }
 }
 
+// INIT COOLDOWNS
 if (Memory.cooldowns == undefined) {
     Memory.cooldowns = {
         10: -10000,
@@ -43,6 +46,11 @@ module.exports.loop = function () {
     // Execution Tree
     if(distribution[30]) {
         strategyGlobal.executeStrategies()
+    }
+
+    // Execution Tree
+    if(distribution[30]) {
+        strategyRoom.executeStrategies()
     }
     
     var tower = Game.getObjectById('TOWER_ID');

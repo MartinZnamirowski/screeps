@@ -7,7 +7,7 @@ var logger = require('logger');
 
 const strategies = {
     executeDefault: function() {
-        logger.log("Executing Default strategy.", 20)
+        logger.log("Executing Default global strategy.", 20)
         var room
         for(room in Game.rooms) {
             logger.log("Room Strategy of room " + room + " set to default mode: 0.", 20)
@@ -19,11 +19,11 @@ const strategies = {
     }
 }
 
-var tickManager = {
+var srategyGlobal = {
     executeStrategies: function() {
         if(Game.time > Memory.cooldowns[30] + 20) {
             Memory.cooldowns[30] = Game.time
-            switch(Memory.globals.tickMode) {
+            switch(Memory.globals.strategy) {
             case 0: 
                 return strategies.executeDefault()
             default:
@@ -41,4 +41,4 @@ var tickManager = {
     }
 };
 
-module.exports = tickManager;
+module.exports = srategyGlobal;

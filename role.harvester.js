@@ -38,6 +38,7 @@ var harvesterHelper = {
                     }
                 }
                 if(tooDangerous) {
+                    logger.log("TOOO DANGEROUSSS!!")
                     continue
                 } else {
                 return sourceID

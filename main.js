@@ -28,6 +28,7 @@ module.exports.loop = function () {
     //logger.log(distribution, 5)
     logger.log(Game.time, 5)
 
+    var room
     for(room in Game.rooms) {
         logger.log("Room Strategy of room " + str(room) + " set to default mode: 0.", 20)
     }

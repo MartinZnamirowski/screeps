@@ -27,7 +27,7 @@ var creepHelpers = {
             const cost = 300
             for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){
                 logger.log("Hoho!")
-                body.concat(pattern)
+                body = body.concat(pattern)
             }
         }
         return body

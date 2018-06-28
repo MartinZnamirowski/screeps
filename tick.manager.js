@@ -12,14 +12,18 @@ var logger = require('logger');
 
 const tickAlgorithms = {
     getDefaultTicks: function() {
-        logger.log(Game.cpu.bucket, 5)
-        logger.log(Game.cpu.shardLimits, 5)
+        var bucket = 0
+        if(Game.cpu.bucket == undefined) {
+            bucket = 10000
+        } else {
+            bucket = 10000
+        }
         return {
-            10: Game.cpu.bucket >= 10000 || Game.cpu.bucket < 1000,
-            20: Game.cpu.bucket >= 9000,
-            30: Game.cpu.bucket >= 8000,
-            40: Game.cpu.bucket >= 7000,
-            100: Game.cpu.bucket >= 1000,
+            10: bucket >= 10000 || bucket < 1000,
+            20: bucket >= 9000,
+            30: bucket >= 8000,
+            40: bucket >= 7000,
+            100: bucket >= 1000,
         }
 
     }

@@ -44,20 +44,20 @@ var roomHelpers = {
         }
         
         const myCreeps = room.find(FIND_MY_CREEPS)
-        logger.log("MY CREEPs: " + myCreeps, 5)
+        //logger.log("MY CREEPs: " + myCreeps, 5)
         var harvesterNumber = 0
         var harvestingPower = 0
         for (var i = 0, len = myCreeps.length; i < len; i++) {
             const myCreep = myCreeps[i]
             const currentHP = creepHelpers.getHarvestingPower(myCreep)
-            logger.log("CHECKING CREEP: " + myCreep, 5)
+            //logger.log("CHECKING CREEP: " + myCreep, 5)
             if(currentHP > 0) {
                 harvesterNumber++
                 harvestingPower += currentHP
             }
         }
-        logger.log("HARVESTER NUMBER: " + harvesterNumber, 5)
-        logger.log("HARVESTING POWER: " + harvestingPower, 5)
+        //logger.log("HARVESTER NUMBER: " + harvesterNumber, 5)
+        //logger.log("HARVESTING POWER: " + harvestingPower, 5)
         return harvestingPower >= maxEnergyRate && harvesterNumber >= harvestSlots    
     }
 }
@@ -70,7 +70,7 @@ const strategies = {
         // SPAWN MAX CREEPS
         if(room.energyAvailable == room.energyCapacityAvailable) {
             if(!roomHelpers.harvesterSatiation(room)){
-
+                logger.log("Room " + roomName + " has no harvester Satisfaction. Spawning Harvester.", 20)
             }
         }
     }

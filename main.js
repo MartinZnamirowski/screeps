@@ -35,6 +35,9 @@ module.exports.loop = function () {
         logger.log(room)
         logger.log(room)
         logger.log("Room Strategy of room " + toString(room) + " set to default mode: 0.", 20)
+        logger.log("Room Strategy of room " + toString(room) + " set to default mode: 0.", 20)
+        logger.log("Room Strategy of room " + toString(room) + " set to default mode: 0.", 20)
+        logger.log("Room Strategy of room " + toString(room) + " set to default mode: 0.", 20)
     }
 
     // Execution Tree

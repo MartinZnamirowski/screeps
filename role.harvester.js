@@ -51,7 +51,7 @@ var roleHarvester = {
             creep.memory.target = undefined
         }
 
-        if(!creep.memory.target == undefined) {
+        if(creep.memory.target != undefined) {
             const source = Game.getObjectById(creep.memory.target)
             logger.log("SOURCE: " + source)
             if(creep.harvest(source) == ERR_NOT_IN_RANGE) {

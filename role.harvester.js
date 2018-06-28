@@ -59,6 +59,7 @@ var roleHarvester = {
             }
         } else {
             logger.log("WATT:" + creep.memory.target)
+            logger.log("HAEH:" + creep.memory.target == undefined)
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||

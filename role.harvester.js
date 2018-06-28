@@ -27,7 +27,21 @@ var harvesterHelper = {
         // TODO ORDER SOURCES BY DISTANCE
         for (const sourceID in creep.room.memory.harvestSlots) {
             if(harvestMapping[sourceID] == undefined || harvestMapping[sourceID] == null || harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
+                // Check if contaminated by enemy
+                const source = Game.getObjectById(sourceID)
+                const hostiles = creep.room.find(FIND_HOSTILE_CREEPS)
+                for (var i = 0, len = hostiles.length; i < len; i++) {
+                    const hostile = hostiles[i]
+                    var tooDangerous = false
+                    if(source.pos.inRangeTo(hostile.pos, 5)) {
+                        tooDangerous = true
+                    }
+                }
+                if(tooDangerous) {
+                    continue
+                } else {
                 return sourceID
+                }
             }
         }            
     },

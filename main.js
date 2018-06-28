@@ -30,7 +30,7 @@ module.exports.loop = function () {
 
     var room
     for(room in Game.rooms) {
-        logger.log("Room Strategy of room " + str(room) + " set to default mode: 0.", 20)
+        logger.log("Room Strategy of room " + toString(room) + " set to default mode: 0.", 20)
     }
 
     // Execution Tree

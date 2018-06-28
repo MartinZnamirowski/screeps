@@ -34,10 +34,13 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+        logger.log("HUH")
         if(creep.carry.energy < creep.carryCapacity && creep.memory.target == undefined) {
+            logger.log("OHhfdsfd")
             var target = harvesterHelper.determineHarvestingSlot(creep)
             creep.memory.target = target
         } else if (creep.carry.energy == creep.carryCapacity){
+            logger.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHH")
             creep.memory.target = undefined
         }
 

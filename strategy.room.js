@@ -58,7 +58,7 @@ var roomHelpers = {
         }
         //logger.log("HARVESTER NUMBER: " + harvesterNumber, 5)
         //logger.log("HARVESTING POWER: " + harvestingPower, 5)
-        return harvestingPower >= maxEnergyRate && harvesterNumber >= harvestSlots    
+        return harvestingPower >= maxEnergyRate || harvesterNumber >= harvestSlots    
     }
 }
 

@@ -14,7 +14,7 @@ const strategies = {
             if (Memory.roomStrategies == undefined) {
                 Memory.roomStrategies = {}
             }
-            Memory.roomStrategies(room) = 0
+            Memory.roomStrategies[room] = 0
         }
     }
 }

@@ -19,7 +19,7 @@ var harvesterHelper = {
             if(!myHarvester.memory.target in harvestMapping) {
                 harvestMapping[myHarvester.memory.target] = 1
             } else {
-                harvestMapping[myHarvester.memory.target] += 1
+                harvestMapping[myHarvester.memory.target] = harvestMapping[myHarvester.memory.target] +1
             }
         }
 

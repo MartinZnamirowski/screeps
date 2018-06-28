@@ -25,11 +25,12 @@ module.exports.loop = function () {
     const distribution = tickManager.getDistribution()
     logger.log(distribution, 5)
 
-    logger.log(distribution[10], 5)
-    logger.log(distribution["10"], 5)
 
     // Execution Tree
-    if(distribution["10"]) {
+    if(distribution[10]) {
+        logger.log("LLAALALALA", 5)
+        logger.log(Memory.cooldowns, 5)
+        logger.log(JSON.stringify(Memory.cooldowns), 5)
         tickManager.reEvaluateTickStrategy()
     }
 

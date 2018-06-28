@@ -40,6 +40,7 @@ var roleHarvester = {
         if(creep.carry.energy < creep.carryCapacity && creep.memory.target == undefined) {
             logger.log("OHhfdsfd")
             var target = harvesterHelper.determineHarvestingSlot(creep)
+            logger.log("TARGET!" + target)
             creep.memory.target = target
         } else if (creep.carry.energy == creep.carryCapacity){
             logger.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHH")

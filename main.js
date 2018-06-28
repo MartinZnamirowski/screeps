@@ -4,13 +4,13 @@ var roleBuilder = require('role.builder');
 var tickManager = require('tick.manager')
 var logger = require('logger');
 
+Memory.globals = {
+    "logLevel": 5,
+    "strategy": 0,
+    "tickMode": 0
+}
 
 module.exports.loop = function () {
-    Memory.globals = {
-        "logLevel": 5,
-        "strategy": 0,
-        "tickMode": 0
-    }
 
     const distribution = tickManager.getDistribution()
     logger.log(distribution, 5)

@@ -4,6 +4,7 @@ var roleBuilder = require('role.builder');
 var tickManager = require('tick.manager')
 var logger = require('logger');
 
+/*
 Memory.globals = {
     "logLevel": 5,
     "strategy": 0,
@@ -17,7 +18,7 @@ Memory.cooldowns = {
     40: 0,
     100: 0,
 }
-
+*/
 
 
 module.exports.loop = function () {

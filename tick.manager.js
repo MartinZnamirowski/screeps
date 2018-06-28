@@ -29,6 +29,8 @@ const tickAlgorithms = {
     }
 }
 
+
+
 var tickManager = {
     getDistribution: function() {
         switch(Memory.globals.tickMode) {
@@ -39,6 +41,15 @@ var tickManager = {
         }
     },
 
+    reEvaluateTickStrategy: function() {
+        if(Game.time > Memory.cooldowns[10] + 100) {
+            Memory.cooldowns[10] = Game.time
+            logger.log("Re-evaluating Tick strategy!", 20)
+ 
+            logger.log("Tick Strategy set to default mode: 0", 20)
+            Memory.globals.tickMode = 0
+        }
+    }
 };
 
 module.exports = tickManager;

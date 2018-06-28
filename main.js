@@ -10,10 +10,25 @@ Memory.globals = {
     "tickMode": 0
 }
 
+Memory.cooldowns = {
+    10: 0,
+    20: 0,
+    30: 0,
+    40: 0,
+    100: 0,
+}
+
+
+
 module.exports.loop = function () {
 
     const distribution = tickManager.getDistribution()
     logger.log(distribution, 5)
+
+    // Execution Tree
+    if(distribution[10]) {
+        tickManager.r
+    }
 
     var tower = Game.getObjectById('TOWER_ID');
     if(tower) {

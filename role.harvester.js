@@ -52,8 +52,10 @@ var roleHarvester = {
         }
 
         if(!creep.memory.target == undefined) {
-            if(creep.harvest(Game.getObjectById(creep.memory.target)) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.getObjectById(creep.memory.target), {visualizePathStyle: {stroke: '#ffaa00'}});
+            const source = Game.getObjectById(creep.memory.target)
+            logger.log("SOURCE: " + source)
+            if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         } else {
             var targets = creep.room.find(FIND_STRUCTURES, {

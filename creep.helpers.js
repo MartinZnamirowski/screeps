@@ -5,7 +5,7 @@ var creepHelpers = {
         if(creep.memory.role=='harvester') {
             var workModules = 0
             for (var i = 0, len = creep.body.length; i < len; i++) {
-                creepModule = creep.body[i]
+                const creepModule = creep.body[i]
                 if(creepModule == WORK){
                     workModules++
                 }

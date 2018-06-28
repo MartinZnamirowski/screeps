@@ -28,6 +28,9 @@ module.exports.loop = function () {
     //logger.log(distribution, 5)
     logger.log(Game.time, 5)
 
+    for(room in Game.rooms) {
+        logger.log("Room Strategy of room " + str(room) + " set to default mode: 0.", 20)
+    }
 
     // Execution Tree
     if(distribution[10]) {

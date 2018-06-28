@@ -22,6 +22,7 @@ var creepHelpers = {
         var body = []
         var expendedEnergy = 0
         if(role=='harvester') {
+            logger.log("HIHI!")
             const pattern = [WORK, CARRY, CARRY, CARRY, MOVE]
             const cost = 300
             for(;expendedEnergy + cost <= energyLimit; expendedEnergy+=cost){

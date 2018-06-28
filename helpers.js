@@ -10,7 +10,7 @@ var helpers = {
         const areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
         var emptySpaces = 0
         for (var i = 0, len = areaArray.length; i < len; i++) {
-            currentDict = areaArray[i]
+            const currentDict = areaArray[i]
             if(currentDict['type'] == 'terrain') {
                 if(currentDict['terrain'] != 'wall') {
                     emptySpaces +=1

@@ -10,7 +10,7 @@ const strategies = {
         logger.log("Executing Default strategy.", 20)
         var room
         for(room in Game.rooms) {
-            logger.log("Room Strategy of room " + room + " set from " + Memroy.roomStrategies[room] + "to default mode: 0.", 20)
+            logger.log("Room Strategy of room " + room + " set from " + Memory.roomStrategies[room] + "to default mode: 0.", 20)
             if (Memory.roomStrategies == undefined) {
                 Memory.roomStrategies = {}
             }

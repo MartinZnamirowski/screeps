@@ -26,8 +26,8 @@ module.exports.loop = function () {
     logger.log(distribution, 5)
 
     // Execution Tree
-    if(distribution[10]) {
-        tickManager.r
+    if(distribution["10"]) {
+        tickManager.reEvaluateTickStrategy()
     }
 
     var tower = Game.getObjectById('TOWER_ID');

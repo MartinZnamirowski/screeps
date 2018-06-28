@@ -12,10 +12,11 @@ var roomHelpers = {
             maxEnergyRate = 0
             var source
             for(source in sources) {
+                logger.log(source, 5)
                 maxEnergyRate += source.energyCapacity / 300
             }
             room.memory.maxEnergyRate = maxEnergyRate
-            logger.log("Room " + room.name + " was found to have a max energy Rate of: " + maxEnergyRate)
+            logger.log("Room " + room.name + " was found to have a max energy Rate of: " + maxEnergyRate, 20)
         } else {
             maxEnergyRate = room.memory.maxEnergyRate
         }

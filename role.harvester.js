@@ -30,9 +30,9 @@ var harvesterHelper = {
                 // Check if contaminated by enemy
                 const source = Game.getObjectById(sourceID)
                 const hostiles = creep.room.find(FIND_HOSTILE_CREEPS)
+                var tooDangerous = false
                 for (var i = 0, len = hostiles.length; i < len; i++) {
                     const hostile = hostiles[i]
-                    var tooDangerous = false
                     if(source.pos.inRangeTo(hostile.pos, 5)) {
                         tooDangerous = true
                     }

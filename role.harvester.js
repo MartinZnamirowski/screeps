@@ -16,7 +16,7 @@ var harvesterHelper = {
             if(myHarvester.memory.target == undefined) {
                 continue
             } 
-            if(!myHarvester.memory.target in harvestMapping) {
+            if(!(myHarvester.memory.target in harvestMapping) {
                 logger.log("INITIALIZED HARVERSTER COUNT FOR " + myHarvester.memory.target)
                 harvestMapping[myHarvester.memory.target] = 1
             } else {

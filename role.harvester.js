@@ -31,21 +31,13 @@ var harvesterHelper = {
         // TODO ORDER SOURCES BY DISTANCE
         for (const sourceID in creep.room.memory.harvestSlots) {
             logger.log(sourceID)
-            logger.log(sourceID)
-            logger.log(sourceID)
-            logger.log(sourceID)
-            logger.log(sourceID)
             logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots)
-            logger.log(creep.room.memory.harvestSlots)
-            logger.log(creep.room.memory.harvestSlots)
-            logger.log(creep.room.memory.harvestSlots)
             logger.log(creep.room.memory.harvestSlots)
             if(harvestMapping[sourceID] == undefined || harvestMapping[sourceID] == null || harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
+                logger.log("SOURCE ACCEPTED!")
+                logger.log("SOURCE ID: " +  sourceID)
+                logger.log("harvestMapping[sourceID]: " + harvestMapping[sourceID])
+                logger.log("creep.room.memory.harvestSlots[sourceID]: " + creep.room.memory.harvestSlots[sourceID])
                 // Check if contaminated by enemy
                 const source = Game.getObjectById(sourceID)
                 const hostiles = creep.room.find(FIND_HOSTILE_CREEPS)

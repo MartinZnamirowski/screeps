@@ -17,10 +17,14 @@ var harvesterHelper = {
                 continue
             } 
             if(!myHarvester.memory.target in harvestMapping) {
+                logger.log("INITIALIZED HARVERSTER COUNT FOR " + myHarvester.memory.target)
                 harvestMapping[myHarvester.memory.target] = 1
             } else {
-                harvestMapping[myHarvester.memory.target] = harvestMapping[myHarvester.memory.target] +1
+                logger.log("INCREMENTED HARVESTER COUNT FOR " + myHarvester.memory.target)
+                harvestMapping[myHarvester.memory.target] = harvestMapping[myHarvester.memory.target] + 1
             }
+            logger.log("AFTER TREATING HARVESTER!")
+            logger.log(harvestMapping)
         }
 
         logger.log(harvestMapping)

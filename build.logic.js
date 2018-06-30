@@ -53,7 +53,7 @@ var suitableLocations = {
             const objectsInRange = contructionSitesInRange.length + structuresInRange.length
             logger.log("OBJECTS IN RANGE: " + objectsInRange)
             if (objectsInRange < 4) {
-                logger.log("OBJECTS IN RANGE: " + objectsInRange)
+                logger.log("OBJECTS IN RANGE <4")
                 constructableSpaces = buildingHelpers.constructableSpaces(occupyingObject.pos, 1)
             }
         }

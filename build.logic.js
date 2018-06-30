@@ -16,10 +16,10 @@ var buildingHelpers = {
         const xArray = helpers.range(minX, maxX)
         const yArray = helpers.range(minY, maxY)
         for (var xIndex in xArray) {
-            x = xArray[xIndex]
+            const x = xArray[xIndex]
             buildableArray[x] = []
             for (var yIndex in yArray) {
-                y = yArray[yIndex]
+                const y = yArray[yIndex]
                 buildableArray[x][y] = true
             }
         }

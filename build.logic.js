@@ -8,6 +8,9 @@ var suitableLocations = {
         logger.log(occupyingObjects)
         for (var occupyingObjectIter in occupyingObjects) {
             const occupyingObject = occupyingObjects[occupyingObjectIter]
+            logger.log(occupyingObject)
+            logger.log(occupyingObject)
+            logger.log(occupyingObject)
             const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
             const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES)
             const objectsInRange = contructionSitesInRange + structuresInRange

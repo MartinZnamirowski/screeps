@@ -8,7 +8,13 @@ var creepHelpers = {
         } else {
             creepSource = room.creeps
         }
-        logger.log(creepSource, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
+        logger.log(room, 5)
         logger.log(creepSource, 5)
         logger.log(creepSource, 5)
         logger.log(creepSource, 5)

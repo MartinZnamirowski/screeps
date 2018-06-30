@@ -6,9 +6,9 @@ var suitableLocations = {
         occupiyingObjects = occupiyingObjects.concat(room.find(FIND_MY_STRUCTURES))
         occupiyingObjects = occupiyingObjects.concat(room.find(FIND_MY_CONSTRUCTION_SITES))
         for (var occupyingObjectIter in occupiyingObjects) {
-            occupyingObject = occupiyingObjects[occupyingObjectIter]
-            const contructionSitesInRange = occupiyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
-            const structuresInRange = occupiyingObject.pos.findInRange(FIND_MY_STRUCTURES)
+            const occupyingObject = occupiyingObjects[occupyingObjectIter]
+            const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
+            const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES)
             objectsInRange = contructionSitesInRange + structuresInRange
             logger.log("OBJECTS IN RANGE: " + objectsInRange)
         }

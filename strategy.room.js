@@ -91,18 +91,12 @@ const strategies = {
         // ASSIGN HARVESTER ORDERS
         // Matrix order: baseFeeder, upgrader, builder, maintenance
         var harvestOrderMatrix
-        if(!harvestingSatiated) {
+        if(!harvestingSatiated && creepRoleMatrix['harvester'] + 1 >= room.memory.harvestSlotsTotal) {
             harvestOrderMatrix = [100, 0, 0, 0]
         } else {
             harvestOrderMatrix = [20, 80, 0, 0]
         }
-        logger.log(harvestOrderMatrix, 5)
-        logger.log(harvestOrderMatrix, 5)
         const absoluteDistribution = helpers.getAbsoluteDistribution(creepRoleMatrix['harvester'], harvestOrderMatrix)
-        logger.log(absoluteDistribution, 5)
-        logger.log(absoluteDistribution, 5)
-        logger.log(absoluteDistribution, 5)
-        logger.log(absoluteDistribution, 5)
         creepHelpers.assignOrderDistribution('harvester', absoluteDistribution, HARVEST_ORDER_MATRIX, room)
     }
 }

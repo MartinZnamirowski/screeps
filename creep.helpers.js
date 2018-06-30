@@ -8,25 +8,6 @@ var creepHelpers = {
         } else {
             creepSource = room.find(FIND_MY_CREEPS)
         }
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(room, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-        logger.log(creepSource, 5)
-
         var givenOrderMatrix = []
         var reverseOrderMapping = {}
         for(var iter in matrix) {
@@ -35,7 +16,7 @@ var creepHelpers = {
         }
         
         for(var name in creepSource) {
-            logger.log("TREATING ORDERS OF: " + name, 5)
+            // logger.log("TREATING ORDERS OF: " + name, 5)
             var creep = creepSource[name];
             if(creep.memory.role == role) {
                 const orders = creep.memory.orders
@@ -52,10 +33,6 @@ var creepHelpers = {
                 }
             }
         }
-        logger.log(givenOrderMatrix, 5)
-        logger.log(givenOrderMatrix, 5)
-        logger.log(givenOrderMatrix, 5)
-        logger.log(givenOrderMatrix, 5)
     },
 
     getRoleMatrix: function(room=undefined) {

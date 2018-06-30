@@ -93,5 +93,62 @@ var suitableLocations = {
             }
         }
     },
+
+    findNew2By2: function(room) {
+        var occupyingObjects = []
+        occupyingObjects = occupyingObjects.concat(room.find(FIND_MY_STRUCTURES))
+        occupyingObjects = occupyingObjects.concat(room.find(FIND_MY_CONSTRUCTION_SITES))
+        var checkedSquares = []
+        for (var occupyingObjectIter in occupyingObjects) {
+            const occupyingObject = occupyingObjects[occupyingObjectIter]
+
+            // SKIP BECAUSE WRONG STRUCTURE TYPE
+            if(OUTLYERS.includes(occupyingObject.structureType)) {
+                continue
+            }
+
+            // SKIP BECAUSE WITHIN CHECKED SQUARES
+            var skipCovered = false
+            for(checkedSquareIter in checkedSquares) {
+                checkedSquare = checkedSquares[checkedSquareIter]
+                if (occupyingObject.pos.y >= checkedSquare[0] && occupyingObject.pos.y <= checkedSquare[2] && 
+                    occupyingObject.pos.x >= checkedSquare[1] && occupyingObject.pos.x >= checkedSquare[3]) {
+                    skipCovered = true
+                }
+            }
+            if (skipCovered) {
+                continue
+            }
+
+            const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 1)
+            const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES, 1)
+            const blockingThings = contructionSitesInRange.concat(structuresInRange)
+            
+            // FIND RADIUS FOR THIS STRUCTURE
+            var minY = occupyingObject.pos.y
+            var minX = occupyingObject.pos.x
+            var maxY = occupyingObject.pos.y
+            var maxX = occupyingObject.pos.x
+            for (var blockingThingIter in blockingThings) {
+                const blockingThing = blockingThings[blockingThingIter]
+                if(blockingThing.pos.y < minY) {
+                    minY = blockingThing.pos.y
+                }
+                if(blockingThing.pos.x < minX) {
+                    minX = blockingThing.pos.x
+                }
+                if(blockingThing.pos.y > maxY) {
+                    maxY = blockingThing.pos.y
+                }
+                if(blockingThing.pos.x > maxX) {
+                    maxX = blockingThing.pos.x
+                }
+            }
+            checkSquare = [minY, minX, maxY, maxX]
+            checkedSquares.push(checkedSquare)
+            logger.log(checkedSquare)
+        }
+    },
+
 };
 module.exports = suitableLocations;

@@ -30,12 +30,12 @@ var buildingHelpers = {
             const currentDict = areaArray[i]
             if(currentDict['type'] == 'terrain') {
                 if(currentDict['terrain'] == 'wall') {
-                    buildableArray[currentDict['x']][currentDict['y'] = false
+                    buildableArray[currentDict['x'][currentDict['y']] = false
                 }
             }
 
             if(currentDict['type'] == 'structure'  || currentDict['type'] == 'construction_site') {
-                    buildableArray[currentDict['x']][currentDict['y'] = false
+                    buildableArray[currentDict['x']][currentDict['y']] = false
             }
         }
         logger.log(buildableArray)

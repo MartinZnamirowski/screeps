@@ -1,6 +1,46 @@
 var logger = require('logger');
 
 var helpers = {
+    getAbsoluteDistribution: function(total, distribution) {
+        var gotOneExtra = []
+        var totalPartials = 0
+        var usedUp = 0
+        var result = []
+        for(var iter in distribution) {
+            gotOneExtra[iter] = 0
+            gotOneExtra[result] = 0
+            totalPartials +=  distribution[iter]
+        }
+
+        for(var iter in distribution) {
+            const multiplier = distribution[iter] / totalPartials
+            const absolutePart = total * multiplier
+            const absoluteFloored = Math.floor(absolutePart)
+            if (usedUp + absoluteFloored <= total) {
+                result[iter] = absoluteFloored
+                usedUp += absoluteFloored
+            }
+            if(absolutePart - Math.floor(absolutePart) >= 0.5) {
+                if (usedUp + 1 <= total) {
+                    result[iter] = result[iter] + 1
+                    gotOneExtra[iter] = 1
+                    usedUp += 1
+                }
+            }
+        }
+
+        for (var iter in gotOneExtra) {
+            if(usedUp == total) {
+                break
+            } else if (gotOneExtra[iter] == 0) {
+                result[iter] = result[iter] + 1
+                gotOneExtra[iter] = 1
+                usedUp += 1
+            }
+        }
+        return result
+    },
+
     freeSpaces: function(pos, radius) {
         const room = Game.rooms[pos.roomName]
         const minX = pos.x - radius

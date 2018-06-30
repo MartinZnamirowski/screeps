@@ -91,6 +91,27 @@ var ordersHarvester = {
         }
     },
 
+        /** @param {Creep} creep **/
+    runUpgrader: function(creep) {
+        if(creep.carry.energy == 0 && creep.memory.target == undefined) {
+            var target = harvesterHelper.determineHarvestingSlot(creep)
+            creep.memory.target = target
+        } else if (creep.carry.energy == creep.carryCapacity){
+            creep.memory.target = undefined
+        }
+
+        if(creep.memory.target != undefined) {
+            const source = Game.getObjectById(creep.memory.target)
+            if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
+            }
+        } else {
+            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
+            }
+        }
+    },
+
 };
 
 var runHarvester = {
@@ -98,6 +119,8 @@ var runHarvester = {
     run: function(creep) {
         if(creep.memory.orders == "baseFeeder") {
             ordersHarvester.runBaseFeeder(creep)
+        if(creep.memory.orders == "upgrader") {
+            ordersHarvester.runUpgrader(creep)
         } else {
             ordersHarvester.runBaseFeeder(creep)
         }

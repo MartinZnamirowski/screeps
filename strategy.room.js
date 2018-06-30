@@ -6,6 +6,8 @@ var creepHelpers = require('creep.helpers');
 // Room Strategies:
 // 0 - Default
 
+const HARVEST_ORDER_MATRIX = ['baseFeeder', 'upgrader', 'builder', 'maintenance']
+
 var roomHelpers = {
     harvesterSatiation: function(room) {
         var maxEnergyRate
@@ -69,17 +71,33 @@ const strategies = {
         logger.log("Executing Default Room strategy for room " + roomName + ".", 20)
 
         const room = Game.rooms[roomName]
-        
+        var harvestingSatiated = undefined
+
+
         // SPAWN MAX CREEPS
         if(room.energyAvailable == room.energyCapacityAvailable) {
             const anySpawn = room.find(FIND_MY_SPAWNS)[0]
-            if(!roomHelpers.harvesterSatiation(room)){
+            harvestingSatiated = roomHelpers.harvesterSatiation(room)
+            if(!harvestingSatiated){
                 logger.log("Room " + roomName + " has no harvester Satisfaction. Spawning Harvester.", 20)
                 const body = creepHelpers.constructCreep('harvester', room.energyAvailable)
                 logger.log(body)
                 anySpawn.spawnCreep(body, 'harvester-' + Game.time, {memory: {role: 'harvester', orders: 'baseFeeder'}});
             }
         }
+
+        const creepRoleMatrix = creepHelpers.getRoleMatrix()
+
+        // ASSIGN HARVESTER ORDERS
+        // Matrix order: baseFeeder, upgrader, builder, maintenance
+        if(!harvestingSatiated) {
+            harvestOrderMatrix = [100, 0, 0, 0]
+        } else {
+            harvestOrderMatrix = [20, 80, 0, 0]
+        }
+
+        const absoluteDistribution = helpers.getAbsoluteDistribution(creepRoleMatrix['harvester'], harvestOrderMatrix)
+        creepHelpers.assignOrderDistribution('harvester', absoluteDistribution, HARVEST_ORDER_MATRIX, room)
     }
 }
 

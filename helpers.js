@@ -1,6 +1,14 @@
 var logger = require('logger');
 
 var helpers = {
+    range: function(start, end) {
+        var returnArray = []
+        for (var counter = start; counter <= end; counter++) {
+            returnArray[counter-start] = counter
+        }
+        return returnArray
+    },
+
     getAbsoluteDistribution: function(total, distribution) {
         var gotOneExtra = []
         var totalPartials = 0

@@ -100,7 +100,8 @@ const strategies = {
         const absoluteDistribution = helpers.getAbsoluteDistribution(creepRoleMatrix['harvester'], harvestOrderMatrix)
         creepHelpers.assignOrderDistribution('harvester', absoluteDistribution, HARVEST_ORDER_MATRIX, room)
 
-        buildLogic.findExtendable2By2(room)
+        const coordinates = buildLogic.findExtendable2By2(room)
+        logger.log("FINAL COORDINATES: " + coordinates)
     }
 }
 

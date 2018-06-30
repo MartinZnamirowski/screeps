@@ -20,7 +20,7 @@ var buildingHelpers = {
             buildableArray[x] = {}
             for (var yIndex in yArray) {
                 const y = yArray[yIndex]
-                logger.log("SETTING X + Y to True: " + x + " + " + y)
+                // logger.log("SETTING X + Y to True: " + x + " + " + y)
                 buildableArray[x][y] = true
             }
         }
@@ -70,6 +70,26 @@ var suitableLocations = {
                 var constructableSpaces = buildingHelpers.constructableSpaces(occupyingObject.pos, 1)
                 logger.log("CONSTRUCTABLE SPACES")
                 logger.log(constructableSpaces)
+                var bestX
+                var bestY
+                var bestNeighbours = 0
+                for(var conSpaceIndex in constructableSpaces) {
+                    const coordinates = constructableSpaces[conSpaceIndex]
+                    const newPos = new RoomPosition(coordinates[0], coordinates[1], room.name);
+                    const newContructionSitesInRange = newPos.findInRange(FIND_MY_CONSTRUCTION_SITES, 1)
+                    const newStructuresInRange = newPos.findInRange(FIND_MY_STRUCTURES, 1)        
+                    const newObjectsInRange = newContructionSitesInRange.length + newStructuresInRange.length
+                    if (newObjectsInRange == 3) {
+                        return 
+                    } else if (newObjectsInRange>bestNeighbours) {
+                        bestX = coordinates[0]
+                        bestY = coordinates[1]
+                        bestNeighbours = newObjectsInRange
+                    }
+                }
+                if(bestNeighbours > 0) {
+                    return [bestX, bestY]
+                }
             }
         }
     },

@@ -2,11 +2,12 @@ var logger = require('logger');
 
 var suitableLocations = {
     findExtendable2By2: function(room) {
-        var occupiyingObjects = []
-        occupiyingObjects = occupiyingObjects.concat(room.find(FIND_MY_STRUCTURES))
-        occupiyingObjects = occupiyingObjects.concat(room.find(FIND_MY_CONSTRUCTION_SITES))
-        for (var occupyingObjectIter in occupiyingObjects) {
-            const occupyingObject = occupiyingObjects[occupyingObjectIter]
+        var occupyingObjects = []
+        occupyingObjects = occupyingObjects.concat(room.find(FIND_MY_STRUCTURES))
+        occupyingObjects = occupyingObjects.concat(room.find(FIND_MY_CONSTRUCTION_SITES))
+        logger.log(occupyingObjects)
+        for (var occupyingObjectIter in occupyingObjects) {
+            const occupyingObject = occupyingObjects[occupyingObjectIter]
             const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
             const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES)
             const objectsInRange = contructionSitesInRange + structuresInRange

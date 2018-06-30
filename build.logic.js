@@ -11,8 +11,8 @@ var suitableLocations = {
             logger.log(occupyingObject)
             logger.log(occupyingObject)
             logger.log(occupyingObject)
-            const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
-            const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES)
+            const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES, 1)
+            const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES, 1)
             const objectsInRange = contructionSitesInRange + structuresInRange
             logger.log("OBJECTS IN RANGE: " + objectsInRange)
         }

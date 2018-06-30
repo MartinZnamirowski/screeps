@@ -25,7 +25,6 @@ var buildingHelpers = {
             }
         }
         const areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
-        var emptySpaces = 0
         for (var i = 0, len = areaArray.length; i < len; i++) {
             const currentDict = areaArray[i]
             if(currentDict['type'] == 'terrain') {
@@ -38,8 +37,16 @@ var buildingHelpers = {
                     buildableArray[currentDict['x']][currentDict['y']] = false
             }
         }
-        logger.log(buildableArray)
-        return emptySpaces
+        var returnList = []
+        for (var xIndex in xArray) {
+            const x = xArray[xIndex]
+            for (var yIndex in yArray) {
+                const y = yArray[yIndex]
+                if (buildableArray[x][y])
+                    returnList.push([x,y])
+            }
+        }
+        return returnList
     },
 
 }

@@ -20,6 +20,7 @@ var buildingHelpers = {
             buildableArray[x] = []
             for (var yIndex in yArray) {
                 const y = yArray[yIndex]
+                logger.log("SETTING X + Y to True: " + x + " + " + y)
                 buildableArray[x][y] = true
             }
         }

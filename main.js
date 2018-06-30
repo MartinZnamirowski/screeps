@@ -24,7 +24,6 @@ if (Memory.cooldowns == undefined) {
     }
 }
 
-
 module.exports.loop = function () {
 
     // MEMORY CLEANUP
@@ -64,5 +63,5 @@ module.exports.loop = function () {
         creepController.runCreeps()
     }
 
-    logger.log("USED CPU: " + Game.cpu.getUsed())
+    //logger.log("USED CPU: " + Game.cpu.getUsed())
 }

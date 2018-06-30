@@ -1,6 +1,7 @@
 var logger = require('logger');
 var helpers = require('helpers');
 var creepHelpers = require('creep.helpers');
+var buildLogic = require('build.logic');
 // 40 - Execute Room Strategy
 
 // Room Strategies:
@@ -98,6 +99,8 @@ const strategies = {
         }
         const absoluteDistribution = helpers.getAbsoluteDistribution(creepRoleMatrix['harvester'], harvestOrderMatrix)
         creepHelpers.assignOrderDistribution('harvester', absoluteDistribution, HARVEST_ORDER_MATRIX, room)
+
+        buildLogic.findExtendable2By2(room)
     }
 }
 

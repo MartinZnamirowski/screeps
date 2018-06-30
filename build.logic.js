@@ -8,6 +8,9 @@ var suitableLocations = {
         logger.log(occupyingObjects)
         for (var occupyingObjectIter in occupyingObjects) {
             const occupyingObject = occupyingObjects[occupyingObjectIter]
+            if(['controller'].includes(occupyingObject.structureType)) {
+                continue
+            }
             logger.log(occupyingObject)
             logger.log(occupyingObject)
             logger.log(occupyingObject)

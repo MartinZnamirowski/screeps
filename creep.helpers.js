@@ -33,6 +33,10 @@ var creepHelpers = {
                 }
             }
         }
+        logger.log(givenOrderMatrix, 5)
+        logger.log(givenOrderMatrix, 5)
+        logger.log(givenOrderMatrix, 5)
+        logger.log(givenOrderMatrix, 5)
     },
 
     getRoleMatrix: function(room=undefined) {

@@ -2,10 +2,7 @@ var logger = require('logger');
 
 var harvesterHelper = {
     determineHarvestingSlot: function(creep) {
-        var sources = creep.room.find(FIND_SOURCES);
-
         var harvestMapping = {}
-
         const myHarvesters = creep.room.find(FIND_MY_CREEPS, {
             filter: (creep) => {
                 return creep.memory.role=='harvester'
@@ -56,11 +53,10 @@ var harvesterHelper = {
                 }
             }
         }            
-    },
-}
+    }
+};
 
 var ordersHarvester = {
-
     /** @param {Creep} creep **/
     runBaseFeeder: function(creep) {
         if(creep.carry.energy < creep.carryCapacity && creep.memory.target == undefined) {
@@ -91,7 +87,7 @@ var ordersHarvester = {
         }
     },
 
-        /** @param {Creep} creep **/
+    /** @param {Creep} creep **/
     runUpgrader: function(creep) {
         if(creep.carry.energy == 0 && creep.memory.target == undefined) {
             var target = harvesterHelper.determineHarvestingSlot(creep)
@@ -110,8 +106,7 @@ var ordersHarvester = {
                 creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
-    },
-
+    }
 };
 
 var runHarvester = {
@@ -125,7 +120,6 @@ var runHarvester = {
             ordersHarvester.runBaseFeeder(creep)
         }
     }
-
 };
 
 

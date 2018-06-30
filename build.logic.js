@@ -1,5 +1,7 @@
 var logger = require('logger');
 
+const OUTLYERS = ['controller', 'link']
+
 var suitableLocations = {
     findExtendable2By2: function(room) {
         var occupyingObjects = []
@@ -8,7 +10,7 @@ var suitableLocations = {
         logger.log(occupyingObjects)
         for (var occupyingObjectIter in occupyingObjects) {
             const occupyingObject = occupyingObjects[occupyingObjectIter]
-            if(['controller', 'spawn'].includes(occupyingObject.structureType)) {
+            if(OUTLYERS.includes(occupyingObject.structureType)) {
                 continue
             }
             logger.log(occupyingObject)

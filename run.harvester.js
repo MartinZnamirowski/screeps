@@ -17,27 +17,27 @@ var harvesterHelper = {
                 continue
             } 
             if(!(myHarvester.memory.target in harvestMapping)) {
-                logger.log("INITIALIZED HARVERSTER COUNT FOR " + myHarvester.memory.target)
+                //logger.log("INITIALIZED HARVERSTER COUNT FOR " + myHarvester.memory.target)
                 harvestMapping[myHarvester.memory.target] = 1
             } else {
-                logger.log("INCREMENTED HARVESTER COUNT FOR " + myHarvester.memory.target)
+                //logger.log("INCREMENTED HARVESTER COUNT FOR " + myHarvester.memory.target)
                 harvestMapping[myHarvester.memory.target] = harvestMapping[myHarvester.memory.target] + 1
             }
-            logger.log("AFTER TREATING HARVESTER!")
-            logger.log(harvestMapping)
+            //logger.log("AFTER TREATING HARVESTER!")
+            //logger.log(harvestMapping)
         }
 
-        logger.log(harvestMapping)
+        //logger.log(harvestMapping)
         // TODO ORDER SOURCES BY DISTANCE
         for (const sourceID in creep.room.memory.harvestSlots) {
-            logger.log(sourceID)
-            logger.log(creep.room.memory.harvestSlots[sourceID])
-            logger.log(creep.room.memory.harvestSlots)
+            //logger.log(sourceID)
+            //logger.log(creep.room.memory.harvestSlots[sourceID])
+            //logger.log(creep.room.memory.harvestSlots)
             if(harvestMapping[sourceID] == undefined || harvestMapping[sourceID] == null || harvestMapping[sourceID] < creep.room.memory.harvestSlots[sourceID]) {
-                logger.log("SOURCE ACCEPTED!")
-                logger.log("SOURCE ID: " +  sourceID)
-                logger.log("harvestMapping[sourceID]: " + harvestMapping[sourceID])
-                logger.log("creep.room.memory.harvestSlots[sourceID]: " + creep.room.memory.harvestSlots[sourceID])
+                //logger.log("SOURCE ACCEPTED!")
+                //logger.log("SOURCE ID: " +  sourceID)
+                //logger.log("harvestMapping[sourceID]: " + harvestMapping[sourceID])
+                //logger.log("creep.room.memory.harvestSlots[sourceID]: " + creep.room.memory.harvestSlots[sourceID])
                 // Check if contaminated by enemy
                 const source = Game.getObjectById(sourceID)
                 const hostiles = creep.room.find(FIND_HOSTILE_CREEPS)
@@ -59,10 +59,10 @@ var harvesterHelper = {
     },
 }
 
-var roleHarvester = {
+var ordersHarvester = {
 
     /** @param {Creep} creep **/
-    run: function(creep) {
+    runBaseFeeder: function(creep) {
         if(creep.carry.energy < creep.carryCapacity && creep.memory.target == undefined) {
             var target = harvesterHelper.determineHarvestingSlot(creep)
             creep.memory.target = target
@@ -89,7 +89,21 @@ var roleHarvester = {
                 }
             }
         }
-    }
+    },
+
 };
 
-module.exports = roleHarvester;
+var runHarvester = {
+    /** @param {Creep} creep **/
+    run: function(creep) {
+        if(creep.memory.orders == "baseFeeder") {
+            ordersHarvester.runBaseFeeder(creep)
+        } else {
+            ordersHarvester.runBaseFeeder(creep)
+        }
+    }
+
+};
+
+
+module.exports = runHarvester;

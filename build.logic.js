@@ -24,18 +24,21 @@ var buildingHelpers = {
                 buildableArray[x][y] = true
             }
         }
-        logger.log(buildableArray)
-        return 0
         const areaArray = room.lookAtArea(minY, minX, maxY, maxX, true)
         var emptySpaces = 0
         for (var i = 0, len = areaArray.length; i < len; i++) {
             const currentDict = areaArray[i]
             if(currentDict['type'] == 'terrain') {
-                if(currentDict['terrain'] != 'wall') {
-                    emptySpaces +=1
+                if(currentDict['terrain'] == 'wall') {
+                    buildableArray[currentDict[pos][x]][currentDict[pos][y]] = false
                 }
             }
+
+            if(currentDict['type'] == 'structure'  || currentDict['type'] == 'construction_site') {
+                    buildableArray[currentDict[pos][x]][currentDict[pos][y]] = false
+            }
         }
+        logger.log(buildableArray)
         return emptySpaces
     },
 

@@ -11,13 +11,13 @@ var buildingHelpers = {
         const minY = pos.y - radius
         const maxX = pos.x + radius
         const maxY = pos.y + radius
-        var buildableArray = []
+        var buildableArray = {}
 
         const xArray = helpers.range(minX, maxX)
         const yArray = helpers.range(minY, maxY)
         for (var xIndex in xArray) {
             const x = xArray[xIndex]
-            buildableArray[x] = []
+            buildableArray[x] = {}
             for (var yIndex in yArray) {
                 const y = yArray[yIndex]
                 logger.log("SETTING X + Y to True: " + x + " + " + y)

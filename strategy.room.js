@@ -102,6 +102,8 @@ const strategies = {
 
         const coordinates = buildLogic.findExtendable2By2(room)
         logger.log("FINAL COORDINATES: " + coordinates)
+
+        buildLogic.findNew2By2(room)
     }
 }
 

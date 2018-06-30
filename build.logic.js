@@ -57,7 +57,7 @@ var suitableLocations = {
             logger.log("OBJECTS IN RANGE: " + objectsInRange)
             if (objectsInRange < 4) {
                 logger.log("OBJECTS IN RANGE <4")
-                constructableSpaces = buildingHelpers.constructableSpaces(occupyingObject.pos, 1)
+                var constructableSpaces = buildingHelpers.constructableSpaces(occupyingObject.pos, 1)
             }
         }
     },

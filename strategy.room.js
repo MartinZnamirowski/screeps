@@ -77,7 +77,7 @@ const strategies = {
                 logger.log("Room " + roomName + " has no harvester Satisfaction. Spawning Harvester.", 20)
                 const body = creepHelpers.constructCreep('harvester', room.energyAvailable)
                 logger.log(body)
-                anySpawn.spawnCreep(body, 'harvester-' + Game.time, {memory: {role: 'harvester'}});
+                anySpawn.spawnCreep(body, 'harvester-' + Game.time, {memory: {role: 'harvester', orders: 'baseFeeder'}});
             }
         }
     }

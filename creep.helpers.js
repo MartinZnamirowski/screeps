@@ -6,7 +6,7 @@ var creepHelpers = {
         if(room==undefined) {
             creepSource = Game.creeps
         } else {
-            creepSource = room.creeps
+            creepSource = room.find(FIND_MY_CREEPS)
         }
         logger.log(room, 5)
         logger.log(room, 5)
@@ -64,7 +64,7 @@ var creepHelpers = {
         if(room==undefined) {
             creepSource = Game.creeps
         } else {
-            creepSource = room.creeps
+            creepSource = room.find(FIND_MY_CREEPS)
         }
 
         for(var name in creepSource) {

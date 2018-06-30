@@ -86,7 +86,7 @@ const strategies = {
             }
         }
 
-        const creepRoleMatrix = creepHelpers.getRoleMatrix()
+        const creepRoleMatrix = creepHelpers.getRoleMatrix(room)
 
         // ASSIGN HARVESTER ORDERS
         // Matrix order: baseFeeder, upgrader, builder, maintenance

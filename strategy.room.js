@@ -90,6 +90,7 @@ const strategies = {
 
         // ASSIGN HARVESTER ORDERS
         // Matrix order: baseFeeder, upgrader, builder, maintenance
+        var harvestOrderMatrix
         if(!harvestingSatiated) {
             harvestOrderMatrix = [100, 0, 0, 0]
         } else {

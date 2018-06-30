@@ -8,6 +8,18 @@ var creepHelpers = {
         } else {
             creepSource = room.creeps
         }
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
+        logger.log(creepSource, 5)
 
         var givenOrderMatrix = []
         var reverseOrderMapping = {}

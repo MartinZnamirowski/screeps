@@ -17,6 +17,7 @@ var creepHelpers = {
         }
         
         for(var name in creepSource) {
+            logger.log("TREATING ORDERS OF: " + name, 5)
             var creep = creepSource[name];
             if(creep.memory.role == role) {
                 const orders = creep.memory.orders

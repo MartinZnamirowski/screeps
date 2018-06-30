@@ -12,6 +12,7 @@ var buildingHelpers = {
         const maxX = pos.x + radius
         const maxY = pos.y + radius
         var buildableArray = []
+        
         const xArray = helpers.range(minX, maxX)
         const yArray = helpers.range(minY, maxY)
         for (var xIndex in xArray) {

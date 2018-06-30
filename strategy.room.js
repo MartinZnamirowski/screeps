@@ -91,7 +91,7 @@ const strategies = {
         // ASSIGN HARVESTER ORDERS
         // Matrix order: baseFeeder, upgrader, builder, maintenance
         var harvestOrderMatrix
-        if(!harvestingSatiated && creepRoleMatrix['harvester'] + 1 >= room.memory.harvestSlotsTotal) {
+        if(!harvestingSatiated && creepRoleMatrix['harvester'] + 1 < room.memory.harvestSlotsTotal) {
             harvestOrderMatrix = [100, 0, 0, 0]
         } else {
             harvestOrderMatrix = [20, 80, 0, 0]

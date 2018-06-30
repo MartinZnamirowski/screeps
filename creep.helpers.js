@@ -54,6 +54,7 @@ var creepHelpers = {
                 roleMatrix[creep.memory.role] = 1
             }
         }
+        return roleMatrix
     },
 
     getHarvestingPower: function(creep) {

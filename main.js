@@ -64,5 +64,5 @@ module.exports.loop = function () {
         creepController.runCreeps()
     }
 
-    logger.log("USED CPU: " + Game.getUsedCpu())
+    logger.log("USED CPU: " + Game.cpu.getUsed())
 }

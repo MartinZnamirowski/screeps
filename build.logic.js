@@ -9,7 +9,7 @@ var suitableLocations = {
             const occupyingObject = occupiyingObjects[occupyingObjectIter]
             const contructionSitesInRange = occupyingObject.pos.findInRange(FIND_MY_CONSTRUCTION_SITES)
             const structuresInRange = occupyingObject.pos.findInRange(FIND_MY_STRUCTURES)
-            objectsInRange = contructionSitesInRange + structuresInRange
+            const objectsInRange = contructionSitesInRange + structuresInRange
             logger.log("OBJECTS IN RANGE: " + objectsInRange)
         }
     },

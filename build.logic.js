@@ -145,8 +145,8 @@ var suitableLocations = {
                 }
             }
             const checkSquare = [minY, minX, maxY, maxX]
-            checkedSquares.push(checkedSquare)
-            logger.log(checkedSquare)
+            checkedSquares.push(checkSquare)
+            logger.log(checkSquare)
         }
     },
 

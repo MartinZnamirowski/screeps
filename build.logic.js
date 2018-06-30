@@ -144,7 +144,7 @@ var suitableLocations = {
                     maxX = blockingThing.pos.x
                 }
             }
-            checkSquare = [minY, minX, maxY, maxX]
+            const checkSquare = [minY, minX, maxY, maxX]
             checkedSquares.push(checkedSquare)
             logger.log(checkedSquare)
         }

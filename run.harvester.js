@@ -1,4 +1,4 @@
-var logger = require('logger');
+var logger = require('logger')
 
 var harvesterHelper = {
     determineHarvestingSlot: function(creep) {
@@ -54,7 +54,7 @@ var harvesterHelper = {
             }
         }            
     }
-};
+}
 
 var ordersHarvester = {
     /** @param {Creep} creep **/
@@ -107,20 +107,20 @@ var ordersHarvester = {
             }
         }
     }
-};
+}
 
 var runHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
         if(creep.memory.orders == "baseFeeder") {
             ordersHarvester.runBaseFeeder(creep)
-        if(creep.memory.orders == "upgrader") {
+        } else if(creep.memory.orders == "upgrader") {
             ordersHarvester.runUpgrader(creep)
         } else {
             ordersHarvester.runBaseFeeder(creep)
         }
     }
-};
+}
 
 
 module.exports = runHarvester;
